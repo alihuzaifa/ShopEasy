@@ -1,13 +1,16 @@
-import { SafeAreaView, ScrollView, StyleSheet, Text, View } from 'react-native'
+import { SafeAreaView, ScrollView, StyleSheet, Text } from 'react-native'
 import React from 'react'
 import CustomStyle from '../style'
 import Header from '../components/Header'
 import Title from '../components/Title'
 import Categories from '../components/Categories'
+import Card from '../components/Card'
+import { NativeStackScreenProps } from '@react-navigation/native-stack'
+import { RootStackParamList } from '../../types'
 
-type Props = {}
+type Props = NativeStackScreenProps<RootStackParamList, "Home">;
 
-const Home = (props: Props) => {
+const Home: React.FC<Props> = ({ navigation }) => {
     return (
         <SafeAreaView>
             <ScrollView style={CustomStyle.scrollContainer}>
@@ -24,6 +27,7 @@ const Home = (props: Props) => {
                 >
                     All Products
                 </Text>
+                <Card navigation={navigation} />
             </ScrollView>
         </SafeAreaView>
     )

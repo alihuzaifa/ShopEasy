@@ -3,7 +3,9 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Home from '../screens/Home';
 import { StatusBar } from 'react-native';
 import COLORS from '../constant/COLOR'
-const Stack = createNativeStackNavigator()
+import DetailedScreen from '../screens/DetailScreen';
+import { RootStackParamList } from '../../types';
+const Stack = createNativeStackNavigator<RootStackParamList>()
 export default function MainNavigation() {
     return (
         <NavigationContainer>
@@ -12,6 +14,7 @@ export default function MainNavigation() {
                 headerShown: false,
             }}>
                 <Stack.Screen name="Home" component={Home} />
+                <Stack.Screen name="DetailedScreen" component={DetailedScreen} />
             </Stack.Navigator>
         </NavigationContainer>
     );
